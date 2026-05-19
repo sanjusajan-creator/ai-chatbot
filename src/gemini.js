@@ -1,10 +1,8 @@
 import { flushSync } from 'react-dom';
-const apiKey = import.meta.env.VITE_NVIDIA_API_KEY;
 export default async function run(prompt, onChunk) {
-  const response = await fetch('/api/v1/chat/completions', {
+  const response = await fetch('/api/chat', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
