@@ -1,0 +1,240 @@
+.chatsection{
+    background-color: var(--background-color);
+    height: 100vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.topsection{
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    background-color: var(--background-color);
+}
+.bottomsection{
+    width: 100%;
+    flex: 0 0 clamp(96px, 25vh, 220px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.headings{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 2vmax;
+    text-align: center;
+}
+.headings span:nth-child(1){
+    font-size: 4em;
+    font-weight: 600;
+    background: linear-gradient(to right, rgb(222,19,101), rgb(89,190,215), rgb(139, 139, 139));
+    background-clip: text;
+    color: transparent;
+}
+.headings span:nth-child(2){
+    font-size: 2.9em;
+    font-weight: 600;
+    background: linear-gradient(to right, rgb(19, 192, 222), rgb(227, 93, 138), rgb(91, 91, 91));
+    background-clip: text;
+    color: transparent;
+}
+.headings span:nth-child(3){
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--color);
+    opacity: 0.8;
+}
+.bottomsection input{
+    width: 50%;
+    height: 60px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: var(--btn-background-color);
+    color: var(--btn-color);
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 10px black;
+    overflow: auto;
+}
+#sendbtn{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--btn-background-color);
+    transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sendbtn:hover{
+    background-color: var(--hover-btn-background-color);
+    cursor: pointer;
+}
+#sendbtn svg{
+    width: 30px;
+    height: 30px;
+    color: var(--btn-color);
+}
+
+.userbox{
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    color: var(--color);
+}
+.aibox{
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    color: var(--color);
+    width: 100%;
+}
+.aibox-content{
+    flex: 1;
+    min-width: 0;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+}
+.result img{
+    filter: drop-shadow(2px  2px 10px black);
+}
+.loader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+}
+.loader hr{
+    height: 20px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to right, rgb(118, 210, 215), var(--background-color), rgb(118, 210, 215));
+    background-size: 800px 50px;
+    animation: loader 2s linear infinite
+}
+@keyframes loader {
+    0%{
+        background-position: -800px 0px;
+    }
+    100%{
+        background-position: 800px 0px;
+    }
+}
+
+.markdown {
+  line-height: 1.8;
+  font-size: 16px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.plain-text {
+  width: 100%;
+  line-height: 1.8;
+}
+
+.result::-webkit-scrollbar,
+.markdown::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.tail-anchor {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+}
+
+.markdown h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.markdown h2 {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.markdown h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.markdown p {
+  margin-bottom: 12px;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.markdown li {
+  margin-bottom: 8px;
+}
+
+.markdown strong {
+  font-weight: bold;
+}
+
+.markdown code {
+  background: #222;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.markdown pre {
+  background: #111;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+@media (max-width: 800px){
+    .headings{
+    font-size: 2vmax;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px){
+  .bottomsection{
+    flex: 0 0 clamp(88px, 22vh, 180px);
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    padding: 0 16px;
+  }
+  .bottomsection input{
+    width: 100%;
+  }
+  #sendbtn{
+    width: 52px;
+    height: 52px;
+  }
+}

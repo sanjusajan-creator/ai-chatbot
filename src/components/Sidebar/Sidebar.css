@@ -1,0 +1,131 @@
+.sidebar{
+    padding: 20px 10px;
+    height: 100vh;
+    overflow: auto;
+    background-color: var(--background-color);
+    color: var(--color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+    font-size: 20px;
+    scrollbar-width: none;
+    width: 280px;
+    border-right: 1px solid rgba(105,119,132,0.35);
+}
+.sidebar.is-collapsed{
+    width: 90px;
+    align-items: center;
+}
+.sidebar.is-collapsed .newchat,
+.sidebar.is-collapsed .recent{
+    justify-content: center;
+    width: 100%;
+}
+.sidebar.is-collapsed .sidebar-header{
+    justify-content: center;
+}
+.sidebar.is-collapsed .newchat p,
+.sidebar.is-collapsed .recent p{
+    display: none;
+}
+.sidebar svg{
+    width: 30px;
+    height: 30px;
+    color: var(--color);
+}
+.sidebar-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 4px 0;
+    min-height: 52px;
+}
+.sidebar-toggle{
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(105,119,132,0.35);
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color);
+}
+.sidebar-close{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(105,119,132,0.2);
+    color: var(--color);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.newchat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(170, 175, 179);
+    padding: 15px;
+    border-radius: 30px;
+     cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    max-width: 220px;
+}
+.recent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+}
+.recent:hover{
+    background-color: rgb(134, 139, 141);
+    cursor: pointer;    
+}
+.newchat:hover{
+    background-color: rgb(117, 121, 122);
+    cursor: pointer;    
+}
+@media (max-width: 600px){
+    .sidebar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 20;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.35);
+        padding-top: 16px;
+    }
+    .sidebar.is-open{
+        transform: translateX(0);
+    }
+    .sidebar-close{
+        display: inline-flex;
+    }
+    .newchat{
+        align-self: center;
+        margin-top: 8px;
+    }
+    .sidebar.is-collapsed{
+        width: 280px;
+    }
+    .sidebar.is-collapsed .newchat p,
+    .sidebar.is-collapsed .recent p{
+        display: inline;
+    }
+}
